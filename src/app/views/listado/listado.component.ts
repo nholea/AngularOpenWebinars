@@ -17,11 +17,15 @@ export class ListadoComponent implements OnInit {
 
   private recuperarEntradas(): void {
     this.entradaService.recuperarEntradas().subscribe(
-      (data) => {
+      (data:Entrada[]) => {
         this.listadoEntradas = data;
       },
-      (error: string) => {},
-      () => {}
+      (error: Error) => {
+        console.log("Error:", error)
+      },
+      () => {
+        console.log('Petición realizada correctamente');
+      }
     );
   }
 
