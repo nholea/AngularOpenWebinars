@@ -1,8 +1,5 @@
-#entrada {
-  background-color: aqua;
+.entrada-card {
+  background-color: cadetblue;
   border-radius: 10px;
-}
-
-#entrada * {
-  padding: 10px;
+  margin-bottom: 10px;
 }
