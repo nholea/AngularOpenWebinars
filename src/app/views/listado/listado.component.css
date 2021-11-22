@@ -6,3 +6,10 @@
 #listado h3 {
   padding: 10px;
 }
+
+mat-toolbar {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+

@@ -8,6 +8,7 @@ import { Usuario } from 'src/app/shared/clases/usuario';
 })
 export class LoginComponent implements OnInit {
   usuario: Usuario;
+  hide: boolean = true;
   constructor() {
     this.usuario = new Usuario();
   }

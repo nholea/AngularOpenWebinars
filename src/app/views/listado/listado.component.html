@@ -1,4 +1,9 @@
 <div id="contenedor">
-  <h3>Listado de entradas al blog:</h3>
+  <mat-toolbar color="primary" class ="mat-elevation-z2">
+    <h3>Listado de entradas al blog:</h3>
+  </mat-toolbar>
   <app-entrada *ngFor="let entrada of listadoEntradas" [entrada]="entrada" (click)="mostrarTitulo(entrada.title)"></app-entrada>
 </div>
+
+
+
