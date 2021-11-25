@@ -1,7 +1,13 @@
-.form{
+.form {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  max-width: 400px;
+  max-width: 500px;
   border-color: gray;
+  border-radius: 15px;
+  align-items: center;
+  margin-left: 20px;
+  background-color: rgb(172, 107, 192);
 }
+
+

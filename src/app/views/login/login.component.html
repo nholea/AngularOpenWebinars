@@ -1,46 +1,65 @@
-<form (ngSubmit)="submit()" #usuarioForm="ngForm">
-  <mat-form-field appearance="outline" class="form">
-    <mat-label>Introduzca su contraseña</mat-label>
-    <input
-      matInput
-      placeholder="Password"
-      [type]="hide ? 'password' : 'text'"
-      [(ngModel)]="usuario.contrasena"
-      name="contrasena"
-      #contrasena="ngModel"
-      required
-      minlength="4"
-    />
-    <button
-      mat-icon-button
-      matSuffix
-      (click)="hide = !hide"
-      [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hide"
-    >
-      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-    </button>
-    <mat-error *ngIf="contrasena.invalid && contrasena.dirty" class="error-message">
-      <mat-error *ngIf="contrasena.errors?.required">Campo requerido</mat-error>
-      <mat-error *ngIf="contrasena.errors?.minlength">Mínimo 4 caracteres</mat-error>
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="form">
-    <mat-label for="usuario">Nombre</mat-label>
-    <input
-      matInput
-      placeholder="Nombre"
-      [(ngModel)]="usuario.nombre"
-      name="nombre"
-      #nombre="ngModel"
-      required
-    />
-    <div *ngIf="nombre.invalid && nombre.dirty" class="alert">
-      <div *ngIf="nombre.errors?.required">Campo requerido</div>
-    </div>
-    <mat-icon matSuffix>person</mat-icon>
-  </mat-form-field>
-  <div class="submit-button">
-    <button mat-raised-button color="primary" type="submit" [disabled]="!usuarioForm.form.valid">Entrar</button>
-  </div>
-</form>
+<mat-sidenav-container class="form">
+  <mat-sidenav-content>
+    <mat-form-field appearance="outline" >
+      <mat-label for="usuario">Nombre</mat-label>
+      <input
+        matInput
+        placeholder="Nombre"
+        [(ngModel)]="usuario.nombre"
+        name="nombre"
+        #nombre="ngModel"
+        required
+      />
+      <mat-error *ngIf="nombre.invalid && nombre.dirty" class="alert">
+        <mat-error *ngIf="nombre.errors?.required">Campo requerido</mat-error>
+      </mat-error>
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+    <form (ngSubmit)="submit()" #usuarioForm="ngForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Introduzca su contraseña</mat-label>
+        <input
+          matInput
+          placeholder="Password"
+          [type]="hide ? 'password' : 'text'"
+          [(ngModel)]="usuario.contrasena"
+          name="contrasena"
+          #contrasena="ngModel"
+          required
+          minlength="4"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-error
+          *ngIf="contrasena.invalid && contrasena.dirty"
+          class="error-message"
+        >
+          <mat-error *ngIf="contrasena.errors?.required"
+            >Campo requerido</mat-error
+          >
+          <mat-error *ngIf="contrasena.errors?.minlength"
+            >Mínimo 4 caracteres</mat-error
+          >
+        </mat-error>
+      </mat-form-field>
+
+      <div class="submit-button">
+        <button
+          mat-raised-button
+          color="accent"
+          type="submit"
+          [disabled]="!usuarioForm.form.valid"
+        >
+          Entrar
+        </button>
+      </div>
+    </form>
+  </mat-sidenav-content>
+</mat-sidenav-container>
